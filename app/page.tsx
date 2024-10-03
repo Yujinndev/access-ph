@@ -1,19 +1,19 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
-import { ArrowDown, ArrowRight } from 'lucide-react'
-import { BRAND, LOGOS, SERVICES } from './constants'
+import { ArrowDown } from 'lucide-react'
+import { BRAND, LOGOS, SERVICES } from '@/app/constants'
 import Image from 'next/image'
 import ScrollingParticles from '@/components/ui/scrolling-particles'
 import HighlightText from '@/components/ui/highlight-text'
 import Link from 'next/link'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { cn } from '@/lib/utils'
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import CarouselSlider from '@/components/ui/carousel-slider'
 
 export default function Home() {
   return (
@@ -123,7 +123,7 @@ export default function Home() {
               />
             </h1>
             <p
-              className="mx-auto md:text-xl lg:w-[60%] lg:text-2xl"
+              className="mx-auto md:w-[80%] md:text-xl lg:w-[60%] lg:text-2xl"
               data-aos="fade-up"
               data-aos-delay="500"
               data-aos-duration="1000"
@@ -132,66 +132,13 @@ export default function Home() {
               empower your Institution to thrive in a rapidly changing world.
             </p>
           </div>
-          <div className="space-y-6">
-            <div className="relative flex flex-col gap-4 lg:flex-row">
-              {SERVICES.slice(0, 3).map((service, index) => (
-                <Card
-                  key={index}
-                  className={cn(
-                    'flex h-[350px] flex-col rounded-md bg-[#336A9F] p-4 text-white transition-all duration-300 ease-linear lg:h-[500px] lg:w-[45%]',
-                    { 'bg-[#03346E] lg:w-full': index === 0 }
-                  )}
-                  data-aos-delay={250 * (index + 1)}
-                  data-aos="fade-left"
-                  data-aos-duration="1000"
-                >
-                  <CardHeader className="h-4/5 w-full p-0 pb-4">
-                    <Image
-                      src={service.image}
-                      alt={service.name}
-                      className={cn(
-                        'aspect-square h-full w-full rounded-sm border-[1px] object-contain p-4 opacity-5',
-                        { 'opacity-100': index === 0 }
-                      )}
-                      priority
-                    />
-                  </CardHeader>
-                  <CardContent className="flex h-1/5 w-full items-center justify-between overflow-hidden rounded-md bg-[#D9D9D9]/10 py-4 text-left">
-                    <div className="w-5/6 space-y-2 py-2">
-                      <h2 className="font-dmSans text-xl">{service.name}</h2>
-                      <p
-                        className={cn('line-clamp-1 hidden', {
-                          'inline-block': index === 0,
-                        })}
-                      >
-                        {service.description}
-                      </p>
-                    </div>
-                    <Button
-                      variant="secondary"
-                      className={cn(
-                        'hidden h-12 w-12 rounded-full bg-[#E2E2B6] text-black',
-                        { block: index === 0 }
-                      )}
-                      size="icon"
-                    >
-                      <ArrowRight className="mx-auto flex-shrink-0" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <Button
-              variant="secondary"
-              className="rounded-full bg-[#E2E2B6] px-16 py-4 text-base text-black"
-            >
-              View All
-            </Button>
+          <div className="relative max-w-screen-xl space-y-6">
+            <CarouselSlider items={SERVICES} />
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden lg:h-[50rem]">
+      <section className="relative overflow-hidden lg:h-[30rem]">
         <div className="gradient-bg polygon-path absolute hidden h-full w-5/12 lg:block lg:w-[46%]" />
         <div className="gradient-bg mb-polygon-path absolute block h-[40%] w-full lg:hidden" />
 
@@ -210,6 +157,7 @@ export default function Home() {
           <div className="mt-8 space-y-3 lg:col-span-4 lg:mt-0">
             {Array.from({ length: 5 }).map((_, index) => (
               <Accordion
+                key={index}
                 type="single"
                 collapsible
                 data-aos-delay={250 * index}

@@ -11,6 +11,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.carousel {
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 24px;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

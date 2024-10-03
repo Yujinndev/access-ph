@@ -14,19 +14,19 @@ export const LINKS = [
   },
   {
     title: 'Services',
-    href: '#',
+    href: '/services',
   },
   {
     title: 'Pricing',
-    href: '#',
+    href: '/pricing',
   },
   {
     title: 'Blog',
-    href: '#',
+    href: '/blog',
   },
   {
     title: 'About Us',
-    href: '#',
+    href: '/about',
   },
 ]
 export const LOGOS = [
@@ -53,17 +53,20 @@ export const LOGOS = [
 ]
 export const SERVICES = [
   {
+    id: 1,
     name: 'ACCESS School Management System',
     description:
       'A fully-integrated, customizable, extensible school management system.',
     image: LORMA,
   },
   {
+    id: 2,
     name: 'ACCESS Sims',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     image: ACCESSPH,
   },
   {
+    id: 3,
     name: 'Systems Services',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     image: ACCESSPH,
