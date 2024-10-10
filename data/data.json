@@ -1,0 +1,170 @@
+{
+  "BRAND": {
+    "name": "ACCESS",
+    "heading": {
+      "text": "Your ACCESS to SOLUTIONS",
+      "highlights": [
+        {
+          "text": "ACCESS",
+          "underline": {
+            "color": "#E2E2B6"
+          }
+        },
+        {
+          "text": "SOLUTIONS",
+          "textColor": "#fef3c7"
+        }
+      ]
+    },
+    "subheading": "Data ACCESS Solutions",
+    "description": "Ensuring systems with transparency and control",
+    "logo": "/images/ACCESSPH.png",
+    "more": {
+      "heading": {
+        "text": "We will Build you the perfect tools.",
+        "highlights": [
+          {
+            "text": "Build",
+            "underline": {
+              "color": "#03346E"
+            }
+          }
+        ]
+      },
+
+      "subheading": "We help you build and develop websites, web apps, mobile apps,custom software solutions, and more.",
+      "exp": "/images/EXPERIENCE.png"
+    }
+  },
+  "LINKS": [
+    {
+      "title": "Home",
+      "href": "/"
+    },
+    {
+      "title": "Services",
+      "href": "/services"
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing"
+    },
+    {
+      "title": "Blog",
+      "href": "/blog"
+    },
+    {
+      "title": "About Us",
+      "href": "/about"
+    }
+  ],
+  "LOGOS": [
+    {
+      "name": "GOOGLE",
+      "image": "/images/GOOGLE.png"
+    },
+    {
+      "name": "AMAZON",
+      "image": "/images/AMAZON.png"
+    },
+    {
+      "name": "CANVA",
+      "image": "/images/CANVA.png"
+    },
+    {
+      "name": "QUORA",
+      "image": "/images/QUORA.png"
+    }
+  ],
+  "FAQs": {
+    "heading": {
+      "text": "FAQs about Access",
+      "highlights": [
+        {
+          "text": "Access",
+          "textColor": "#E2E2B6"
+        }
+      ]
+    },
+    "subheading": "Curious about Access? Find answers to Frequently Asked Questions about our platform and how we can help you.",
+    "items": [
+      {
+        "question": "How do I get started with Access?",
+        "answer": "Contact us via our website or email, and our team will guide you through the process. We’ll assess your needs and recommend the best solution for your institution, whether it’s the Startup Plan or a custom Enterprise solution."
+      },
+      {
+        "question": "Are there any trial or demo options available for prospective clients?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et sapien quam."
+      },
+      {
+        "question": "What kind of support do you provide?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et sapien quam."
+      },
+      {
+        "question": "What security measures implemented have in place to protect our data?",
+        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et sapien quam."
+      }
+    ]
+  },
+  "SERVICES": {
+    "heading": {
+      "text": "Our Services",
+      "highlights": [
+        {
+          "text": "Services",
+          "underline": {
+            "color": "#E2E2B6"
+          }
+        }
+      ]
+    },
+    "subheading": "Partner with us to deliver innovative, scalable systems that empower your Institution to thrive in a rapidly changing world.",
+    "more": {
+      "title": "What we do:",
+      "heading": {
+        "text": "Crafting the Right Solutions for You",
+        "highlights": [
+          {
+            "text": "Solutions",
+            "underline": {
+              "color": "#E2E2B6"
+            }
+          }
+        ]
+      },
+
+      "subheading": "We deliver custom system solutions to help institutions run smoothly and efficiently, so they can focus on their core goals.",
+      "exp": "/images/EXPERIENCE.png"
+    },
+    "items": [
+      {
+        "id": 1,
+        "name": "ACCESS School Management System",
+        "type": "Product",
+        "description": "A fully-integrated, customizable, extensible school management system.",
+        "image": "/images/ACCESS-SCHOOL-SYSTEM.png"
+      },
+      {
+        "id": 2,
+        "name": "ACCESS Sims",
+        "type": "Product",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque tortor erat, maximus vehicula arcu mattis ut. Nam sed nibh rutrum, iaculis risus at, rhoncus orci. ",
+        "image": "/images/ACCESS.png"
+      },
+      {
+        "id": 3,
+        "name": "Systems Services",
+        "type": "Service",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque tortor erat, maximus vehicula arcu mattis ut. Nam sed nibh rutrum, iaculis risus at, rhoncus orci. ",
+        "image": "/images/ACCESS.png"
+      },
+      {
+        "id": 4,
+        "name": "Lorem Ipsum",
+        "type": "Service",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque tortor erat, maximus vehicula arcu mattis ut. Nam sed nibh rutrum, iaculis risus at, rhoncus orci. ",
+        "image": "/images/ACCESS.png"
+      }
+    ]
+  }
+}
