@@ -1,20 +1,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { BRAND, LINKS } from '@/app/constants'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  ArrowRight,
-  FacebookIcon,
-  InstagramIcon,
-  MenuIcon,
-  X,
-} from 'lucide-react'
+import { ArrowRight, FacebookIcon, MenuIcon, X } from 'lucide-react'
 import AOS from 'aos'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import data from '@/data/data.json'
 
 const Navbar = () => {
   const [isTransparent, setIsTransparent] = useState<boolean>(true)
@@ -22,12 +16,18 @@ const Navbar = () => {
   const pathname = usePathname()
 
   useEffect(() => {
-    AOS.init()
+    AOS.init({
+      once: true,
+      duration: 800,
+    })
   }, [])
 
   useEffect(() => {
     const handleScroll = () => {
+      if (pathname !== '/') return
+
       const scrollY = window.scrollY
+      console.log('🚀 ~ handleScroll ~ scrollY:', scrollY)
       const viewportHeight = document.querySelector('.hero')!.clientHeight - 100
 
       if (scrollY >= viewportHeight) {
@@ -39,18 +39,18 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   return (
     <header
       className={cn(
         'fixed z-30 w-screen bg-gray-900 px-2 text-white backdrop-blur-sm transition duration-200 ease-linear lg:justify-around lg:px-16',
         {
-          'bg-transparent': isTransparent,
+          'bg-transparent': isTransparent && pathname === '/',
         }
       )}
     >
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between">
+      <nav className="mx-auto flex max-w-screen-xl items-center justify-between">
         <div className="flex items-center gap-4 px-4 lg:w-[20%] lg:justify-start lg:p-4 xl:gap-16">
           <div className="block md:hidden">
             <Button
@@ -64,16 +64,18 @@ const Navbar = () => {
 
           <Link href="/" className="flex items-center justify-center gap-4">
             <Image
-              src={BRAND.logo}
-              alt={BRAND.name}
+              src={data.BRAND?.logo}
+              alt={data.BRAND?.name}
               className="hidden h-8 w-8 contrast-100 filter lg:block"
+              width={80}
+              height={80}
             />
-            <h1 className="-mt-[4px] text-lg md:text-xl">{BRAND.name}</h1>
+            <h1 className="-mt-[4px] text-lg md:text-xl">{data.BRAND?.name}</h1>
           </Link>
         </div>
         <div className="hidden md:block">
           <ul className="flex gap-3">
-            {LINKS.map((link) => (
+            {data.LINKS?.map((link) => (
               <li key={link.title}>
                 <Button
                   variant="link"
@@ -96,15 +98,12 @@ const Navbar = () => {
           <Button variant="ghost" className="h-8 w-8">
             <FacebookIcon className="flex-shrink-0" />
           </Button>
-          <Button variant="ghost" className="h-8 w-8">
-            <InstagramIcon className="flex-shrink-0" />
-          </Button>
         </div>
 
         {isMenuOpen && (
           <div className="absolute inset-x-0 top-[4rem] h-screen w-screen border-t-[1px] bg-white p-6 text-black md:hidden">
             <ul className="flex h-full flex-col items-start justify-start gap-y-4">
-              {LINKS.map((link, index) => (
+              {data.LINKS?.map((link, index) => (
                 <li
                   key={link.title}
                   className={cn(
@@ -145,7 +144,7 @@ const Navbar = () => {
             </ul>
           </div>
         )}
-      </div>
+      </nav>
     </header>
   )
 }

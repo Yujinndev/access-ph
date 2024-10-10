@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 import localFont from 'next/font/local'
-import Navbar from '@/components/ui/navbar'
+import Navbar from '@/components/common/navbar'
 import './globals.css'
 import 'aos/dist/aos.css'
-import Footer from '@/components/ui/footer'
+import Footer from '@/components/common/footer'
 
 const dmSans = localFont({
   src: './fonts/DMSans.ttf',
@@ -18,7 +18,7 @@ const oswald = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'ACCESS.PH',
+  title: 'ACCESS Software Solutions',
   description: '',
 }
 

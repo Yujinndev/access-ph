@@ -1,95 +1,85 @@
-import { useState } from 'react'
-import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Scrollbar } from 'swiper/modules'
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 
 type TCarouselSlider = {
   items: {
     id: number
     name: string
     description: string
-    image: StaticImageData
+    image: StaticImageData | string
   }[]
 }
 
-const CarouselSlider = ({ items }: TCarouselSlider) => {
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  const handlePrev = () => {
-    if (activeIndex === 0) return
-
-    setActiveIndex((prevIndex) => prevIndex - 1)
-  }
-
-  const handleNext = () => {
-    if (activeIndex === items.length - 1) return
-
-    setActiveIndex((prevIndex) => prevIndex + 1)
-  }
-
+export const CarouselSlider = ({ items }: TCarouselSlider) => {
   return (
-    <div className="relative h-full space-y-6">
-      <div className="carousel relative flex h-[30rem] items-center justify-center gap-4">
-        {items.map((item, index) => (
-          <div
-            key={item.id}
-            className={cn(
-              'absolute h-full w-full flex-col gap-2 space-y-2 rounded-md bg-[#336A9F] p-4 text-white transition-all duration-300 ease-linear lg:relative lg:m-0 lg:flex lg:w-1/4',
-              { 'z-30 bg-[#03346E] lg:w-1/2': index === activeIndex }
-            )}
-            // animate={{
-            //   // width: index === activeIndex ? '50%' : '25%',
-            //   opacity: index === activeIndex ? 1 : 0.75,
-            //   zIndex: index === activeIndex ? 5 : 1,
-            // }}
-            // transition={{ duration: 0.3 }}
-          >
-            <Image
-              src={item.image}
-              alt={item.name}
-              className={cn(
-                'aspect-square h-[72.5%] w-full rounded-sm border-[1px] border-neutral-200 object-contain p-4 opacity-55',
-                { 'opacity-100': index === activeIndex }
-              )}
-            />
-            <div className="flex h-[22.5%] w-full items-center justify-between overflow-hidden rounded-md bg-[#D9D9D9]/10 p-4 py-4 text-left">
-              <div className={cn('w-11/12 space-y-2 py-2')}>
-                <h2 className="line-clamp-1 font-dmSans text-xl">
-                  {item.name}
-                </h2>
-                {activeIndex === index && (
-                  <p className={cn('line-clamp-1')}>{item.description}</p>
-                )}
+    <div className="relative mt-8 lg:mt-24">
+      <div className="relative mx-auto max-w-screen-xl px-5 sm:px-6 lg:flex lg:justify-center lg:px-8">
+        <Swiper
+          className="!overflow-visible"
+          modules={[Navigation, Scrollbar]}
+          scrollbar={{ draggable: true }}
+          spaceBetween={16}
+          slidesPerView="auto"
+          navigation={{
+            prevEl: '.carousel-prev',
+            nextEl: '.carousel-next',
+          }}
+        >
+          {items.map((item, index) => (
+            <SwiperSlide
+              key={index}
+              className="relative !h-auto !w-auto shrink-0 rounded-lg border-b border-l border-t border-gray-200 bg-[#03346E] text-white shadow-sm"
+            >
+              <div className="relative flex h-[28rem] max-w-[18rem] flex-col justify-between gap-4 p-3 lg:max-w-[28rem] lg:p-4">
+                <div className="relative h-[18rem] w-full overflow-hidden rounded-md bg-white">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={800}
+                    height={800}
+                    className="h-full w-[18rem] object-contain lg:w-[28rem]"
+                  />
+                </div>
+                <div className="relative h-[10rem] w-full overflow-clip text-clip rounded-md bg-[#D9D9D9]/10 px-3 py-3 lg:px-5">
+                  <hr className="mb-1 h-px w-full bg-gray-200" />
+                  <div className="flex h-full w-full items-center justify-between">
+                    <div className="flex h-full w-9/12 flex-col justify-center gap-y-2 text-left lg:w-10/12">
+                      <Link
+                        href={{}}
+                        className="group text-base font-bold md:text-xl"
+                      >
+                        {item.name}
+                      </Link>
+                      <p className="max-h-16 overflow-hidden text-clip text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                    <Button
+                      variant="secondary"
+                      className="rounded-full bg-[#E2E2B6] p-4 text-black lg:h-12 lg:w-12"
+                      size="icon"
+                    >
+                      <ArrowRight className="mx-auto flex-shrink-0" />
+                    </Button>
+                  </div>
+                </div>
               </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: index === activeIndex ? 1 : 0,
-                  scale: index === activeIndex ? 1 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <Button
-                  variant="secondary"
-                  className="h-12 w-12 rounded-full bg-[#E2E2B6] text-black"
-                  size="icon"
-                >
-                  <ArrowRight className="mx-auto flex-shrink-0" />
-                </Button>
-              </motion.div>
-            </div>
-          </div>
-        ))}
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
-      <div className="flex items-center justify-center gap-4">
-        <div className="space-x-2">
+      <div className="absolute inset-y-0 right-0 z-10 hidden bg-gradient-to-r from-gray-50/0 to-gray-50/90 2xl:block 2xl:w-64" />
+
+      <div className="flex items-center justify-center gap-4 py-12">
+        <div className="hidden space-x-2 lg:block">
           <Button
-            onClick={handlePrev}
             variant="outline"
-            className="h-12 w-12 rounded-full"
+            className="carousel-prev h-12 w-12 rounded-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -105,9 +95,8 @@ const CarouselSlider = ({ items }: TCarouselSlider) => {
             </svg>
           </Button>
           <Button
-            onClick={handleNext}
             variant="outline"
-            className="h-12 w-12 rounded-full"
+            className="carousel-next h-12 w-12 rounded-full"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -128,5 +117,3 @@ const CarouselSlider = ({ items }: TCarouselSlider) => {
     </div>
   )
 }
-
-export default CarouselSlider

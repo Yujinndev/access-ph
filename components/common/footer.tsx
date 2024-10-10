@@ -1,25 +1,29 @@
-import { BRAND, LINKS } from '@/app/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Input } from './input'
-import { Textarea } from './textarea'
-import { Button } from './button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@/components/ui/button'
+import data from '@/data/data.json'
 
 const Footer = () => {
   return (
     <footer className="z-30 border-t-[1px] border-t-gray-200 text-black backdrop-blur-sm transition duration-200 ease-linear">
-      <div className="mx-auto h-full max-w-screen-xl px-4 pb-20 pt-10 lg:px-16">
+      <div className="mx-auto h-full max-w-screen-xl pb-20 pt-10">
         <div className="grid h-full gap-x-4 lg:grid-cols-9">
           <div className="flex flex-col space-y-6 px-6 pt-12 lg:col-span-4">
             <Link href="/" className="flex items-center gap-4">
               <Image
-                src={BRAND.logo}
-                alt={BRAND.name}
+                src={data.BRAND.logo}
+                alt={data.BRAND.name}
+                width={48}
+                height={48}
                 className="h-12 w-12 contrast-100 filter"
                 priority
               />
-              <h1 className="-mt-[4px] text-xl md:text-2xl">{BRAND.name}</h1>
+              <h1 className="-mt-[4px] text-xl md:text-2xl">
+                {data.BRAND.name}
+              </h1>
             </Link>
             <p className="text-justify lg:w-3/4">
               ACCESS originated from the acronym: Academic Community
@@ -29,13 +33,13 @@ const Footer = () => {
               schools.
             </p>
           </div>
-          <div className="px-6 pt-12 lg:col-span-2">
+          <div className="hidden px-6 pt-12 lg:col-span-2 lg:block">
             <h2 className="-mt-[4px] font-oswald text-lg font-bold md:text-xl">
               Navigation
             </h2>
 
             <ul className="mt-4 space-y-4">
-              {LINKS.map((link) => (
+              {data.LINKS?.map((link) => (
                 <li key={link.title}>
                   <Link
                     href={link.href}

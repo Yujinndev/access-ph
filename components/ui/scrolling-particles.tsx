@@ -8,11 +8,11 @@ import 'swiper/css'
 type TScrollingParticles = {
   items: {
     name: string
-    image: StaticImageData
+    image: StaticImageData | string
   }[]
 }
 
-const ScrollingParticles = ({ items }: TScrollingParticles) => {
+export const ScrollingParticles = ({ items }: TScrollingParticles) => {
   return (
     <div className="relative z-50 mx-auto w-full max-w-screen-2xl">
       <div className="absolute inset-y-0 left-0 z-50 h-full w-1/6 bg-gradient-to-r from-gray-900 via-gray-900 via-40% to-transparent lg:w-1/5" />
@@ -26,12 +26,11 @@ const ScrollingParticles = ({ items }: TScrollingParticles) => {
         loop={true}
         breakpoints={{
           640: {
-            slidesPerView: 7,
+            slidesPerView: 6,
             spaceBetween: 30,
           },
-          // when window width is >= 480px
           1280: {
-            slidesPerView: 9,
+            slidesPerView: 8,
             spaceBetween: 40,
           },
         }}
@@ -40,14 +39,16 @@ const ScrollingParticles = ({ items }: TScrollingParticles) => {
         }}
         speed={4000} // Adjust this value to control the speed of the animation
         spaceBetween={20}
-        slidesPerView={5}
+        slidesPerView={4}
       >
-        {[...items].map((item, index) => (
+        {[...items, ...items].map((item, index) => (
           <SwiperSlide key={index} className="z-30 m-0">
             <Image
               src={item.image}
               alt={item.name}
-              className="h-12 w-12 rounded-full brightness-200 filter transition-opacity duration-500 lg:h-20 lg:w-20"
+              width={80}
+              height={80}
+              className="rounded-full brightness-200 filter transition-opacity duration-500 lg:h-20 lg:w-20"
             />
           </SwiperSlide>
         ))}
@@ -55,5 +56,3 @@ const ScrollingParticles = ({ items }: TScrollingParticles) => {
     </div>
   )
 }
-
-export default ScrollingParticles

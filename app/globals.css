@@ -7,6 +7,10 @@
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -124,7 +128,12 @@ body {
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply font-oswald text-5xl lg:text-6xl lg:tracking-[2px] xl:text-7xl;
+    @apply font-oswald text-5xl font-bold lg:text-6xl lg:tracking-[2px] xl:text-7xl;
+  }
+  h2,
+  h3,
+  h4 {
+    @apply font-oswald text-2xl lg:text-3xl;
   }
   p {
     @apply font-dmSans font-light tracking-tight;
