@@ -38,18 +38,21 @@ export default function Home() {
             alt={data?.BRAND?.name}
             width={800}
             height={800}
+            loading="lazy"
             className="mx-auto hidden w-full object-cover md:block"
             data-aos="zoom-out-left"
             data-aos-delay="500"
             data-aos-duration="1000"
           />
           <div className="relative space-y-4 md:hidden">
-            <div className="absolute inset-x-0 m-auto mt-8 h-80 w-80 rounded-full bg-neutral-200/80 lg:hidden" />
+            <div className="absolute inset-x-0 m-auto mt-8 h-80 w-80 rounded-full bg-brand-accent lg:hidden" />
+
             <Image
               src={data?.BRAND?.more?.exp}
               alt={data?.BRAND?.name}
               width={800}
               height={800}
+              loading="lazy"
               className="h-full w-full"
               data-aos="zoom-out-left"
               data-aos-delay="500"
@@ -74,7 +77,10 @@ export default function Home() {
             {data?.SERVICES?.subheading}
           </p>
         </div>
-        <CarouselSlider items={data?.SERVICES?.items} />
+        <CarouselSlider
+          items={data?.SERVICES?.items}
+          numItems={data?.SERVICES?.landingPageDisplay}
+        />
       </div>
 
       <section className="relative overflow-hidden lg:h-[30rem]">

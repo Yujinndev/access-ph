@@ -16,8 +16,8 @@ const Footer = () => {
               <Image
                 src={data.BRAND.logo}
                 alt={data.BRAND.name}
-                width={48}
-                height={48}
+                width={800}
+                height={800}
                 className="h-12 w-12 contrast-100 filter"
                 priority
               />
@@ -42,7 +42,7 @@ const Footer = () => {
               {data.LINKS?.map((link) => (
                 <li key={link.title}>
                   <Link
-                    href={link.href}
+                    href={link.disabled ? '#' : link.href}
                     className="font-dmSans font-light underline-offset-8 hover:underline"
                   >
                     {link.title}
@@ -65,15 +65,13 @@ const Footer = () => {
               />
               <Input type="phone" placeholder="Phone" className="px-4 py-5" />
               <Textarea placeholder="Message" />
-              <Button className="w-full rounded-full bg-[#03346E]">
-                Submit
-              </Button>
+              <Button className="w-full rounded-full bg-brand">Submit</Button>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex w-full flex-col items-center justify-center bg-[#03346E] p-4 text-white lg:flex-row">
+      <div className="flex w-full flex-col items-center justify-center bg-brand p-4 text-white lg:flex-row">
         © 2016-2024 ACCESS Software Solutions:
         <a href="mailto:info@accessph.net">info@accessph.net</a>
       </div>

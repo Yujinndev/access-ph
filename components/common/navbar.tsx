@@ -27,7 +27,6 @@ const Navbar = () => {
       if (pathname !== '/') return
 
       const scrollY = window.scrollY
-      console.log('🚀 ~ handleScroll ~ scrollY:', scrollY)
       const viewportHeight = document.querySelector('.hero')!.clientHeight - 100
 
       if (scrollY >= viewportHeight) {
@@ -44,7 +43,7 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed z-30 w-screen bg-gray-900 px-2 text-white backdrop-blur-sm transition duration-200 ease-linear lg:justify-around lg:px-16',
+        'fixed z-30 w-screen border-b-[1px] border-white/10 bg-brand-darken px-2 text-white backdrop-blur-sm transition duration-200 ease-linear lg:justify-around lg:px-16',
         {
           'bg-transparent': isTransparent && pathname === '/',
         }
@@ -66,9 +65,9 @@ const Navbar = () => {
             <Image
               src={data.BRAND?.logo}
               alt={data.BRAND?.name}
+              width={800}
+              height={800}
               className="hidden h-8 w-8 contrast-100 filter lg:block"
-              width={80}
-              height={80}
             />
             <h1 className="-mt-[4px] text-lg md:text-xl">{data.BRAND?.name}</h1>
           </Link>
@@ -80,15 +79,19 @@ const Navbar = () => {
                 <Button
                   variant="link"
                   className={
-                    pathname === link.href
+                    pathname === link.href ||
+                    (link.href !== '/' && pathname.startsWith(link.href))
                       ? 'text-white hover:no-underline'
                       : 'text-white'
                   }
                 >
-                  <Link href={link.href}>{link.title}</Link>
+                  <Link href={link.disabled ? '#' : link.href}>
+                    {link.title}
+                  </Link>
                 </Button>
-                {pathname === link.href && (
-                  <div className="m-auto mt-[2px] h-[2px] w-[35%] rounded-full bg-brand" />
+                {(pathname === link.href ||
+                  (link.href !== '/' && pathname.startsWith(link.href))) && (
+                  <div className="m-auto mt-[2px] h-[2px] w-[35%] rounded-full bg-brand-accent" />
                 )}
               </li>
             ))}
@@ -109,12 +112,14 @@ const Navbar = () => {
                   className={cn(
                     'flex w-full border-b-[1px] border-neutral-400 py-4 text-black',
                     {
-                      'border-emerald-800': pathname === link.href,
+                      'border-brand-secondary':
+                        pathname === link.href ||
+                        (link.href !== '/' && pathname.startsWith(link.href)),
                     }
                   )}
                 >
                   <Link
-                    href={link.href}
+                    href={link.disabled ? '#' : link.href}
                     data-aos="fade"
                     data-aos-easing="ease-in-sine"
                     data-aos-delay={index * 250}
@@ -122,23 +127,23 @@ const Navbar = () => {
                     className={cn(
                       'font-rubikMono flex w-full items-center justify-between text-start text-base text-neutral-600',
                       {
-                        'font-bold text-emerald-800': pathname === link.href,
+                        'font-bold text-brand-secondary':
+                          pathname === link.href ||
+                          (link.href !== '/' && pathname.startsWith(link.href)),
                       }
                     )}
                   >
                     {link.title}
                     <ArrowRight
                       color={
-                        pathname === link.href
-                          ? 'rgb(6,95,70)'
-                          : 'rgb(115,115,115)'
+                        pathname === link.href ||
+                        (link.href !== '/' && pathname.startsWith(link.href))
+                          ? 'rgb(51, 106, 159)'
+                          : 'rgb(115, 115, 115)'
                       }
                       size={16}
                     />
                   </Link>
-                  {pathname === link.href && (
-                    <div className="-mt-2 hidden h-[1px] w-full rounded-full bg-emerald-400 lg:block" />
-                  )}
                 </li>
               ))}
             </ul>

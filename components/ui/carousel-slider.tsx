@@ -6,6 +6,7 @@ import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
 type TCarouselSlider = {
+  numItems: number
   items: {
     id: number
     name: string
@@ -14,7 +15,7 @@ type TCarouselSlider = {
   }[]
 }
 
-export const CarouselSlider = ({ items }: TCarouselSlider) => {
+export const CarouselSlider = ({ numItems, items }: TCarouselSlider) => {
   return (
     <div className="relative mt-8 lg:mt-24">
       <div className="relative mx-auto max-w-screen-xl px-5 sm:px-6 lg:flex lg:justify-center lg:px-8">
@@ -29,10 +30,10 @@ export const CarouselSlider = ({ items }: TCarouselSlider) => {
             nextEl: '.carousel-next',
           }}
         >
-          {items.map((item, index) => (
+          {items.slice(0, numItems).map((item, index) => (
             <SwiperSlide
               key={index}
-              className="relative !h-auto !w-auto shrink-0 rounded-lg border-b border-l border-t border-gray-200 bg-[#03346E] text-white shadow-sm"
+              className="relative !h-auto !w-auto shrink-0 rounded-lg border-b border-l border-t border-gray-200 bg-brand text-white shadow-sm"
             >
               <div className="relative flex h-[28rem] max-w-[18rem] flex-col justify-between gap-4 p-3 lg:max-w-[28rem] lg:p-4">
                 <div className="relative h-[18rem] w-full overflow-hidden rounded-md bg-white">
@@ -48,22 +49,22 @@ export const CarouselSlider = ({ items }: TCarouselSlider) => {
                   <hr className="mb-1 h-px w-full bg-gray-200" />
                   <div className="flex h-full w-full items-center justify-between">
                     <div className="flex h-full w-9/12 flex-col justify-center gap-y-2 text-left lg:w-10/12">
-                      <Link
-                        href={{}}
-                        className="group text-base font-bold md:text-xl"
-                      >
+                      <h4 className="group text-base font-semibold md:text-xl">
                         {item.name}
-                      </Link>
-                      <p className="max-h-16 overflow-hidden text-clip text-sm">
+                      </h4>
+                      <p className="line-clamp-3 max-h-16 overflow-hidden text-clip text-sm">
                         {item.description}
                       </p>
                     </div>
                     <Button
                       variant="secondary"
-                      className="rounded-full bg-[#E2E2B6] p-4 text-black lg:h-12 lg:w-12"
+                      className="rounded-full bg-brand-accent p-4 text-black lg:h-12 lg:w-12"
                       size="icon"
+                      asChild
                     >
-                      <ArrowRight className="mx-auto flex-shrink-0" />
+                      <Link className="space-x-2" href={`/services/${item.id}`}>
+                        <ArrowRight className="mx-auto flex-shrink-0" />
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -112,7 +113,11 @@ export const CarouselSlider = ({ items }: TCarouselSlider) => {
             </svg>
           </Button>
         </div>
-        <Button className="rounded-full px-12 py-6">View All</Button>
+        <Button className="rounded-full px-12 py-6" asChild>
+          <Link className="space-x-2" href="/services">
+            View All
+          </Link>
+        </Button>
       </div>
     </div>
   )

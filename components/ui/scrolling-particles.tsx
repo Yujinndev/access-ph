@@ -15,15 +15,15 @@ type TScrollingParticles = {
 export const ScrollingParticles = ({ items }: TScrollingParticles) => {
   return (
     <div className="relative z-50 mx-auto w-full max-w-screen-2xl">
-      <div className="absolute inset-y-0 left-0 z-50 h-full w-1/6 bg-gradient-to-r from-gray-900 via-gray-900 via-40% to-transparent lg:w-1/5" />
-      <div className="absolute inset-y-0 right-0 z-50 h-full w-1/6 bg-gradient-to-l from-gray-900 via-gray-900 via-40% to-transparent lg:w-1/5" />
-      <div className="absolute inset-y-0 right-0 z-50 w-full bg-transparent" />
+      <div className="absolute inset-y-0 left-0 z-50 h-full w-1/6 bg-gradient-to-r from-brand-darken via-brand-darken via-40% to-transparent lg:w-1/5" />
+      <div className="absolute inset-y-0 right-0 z-50 h-full w-1/6 bg-gradient-to-l from-brand-darken via-brand-darken via-40% to-transparent lg:w-1/5" />
 
       <Swiper
         modules={[Autoplay, EffectFade]}
         className="relative ease-linear"
         freeMode={true}
         loop={true}
+        allowTouchMove={false}
         breakpoints={{
           640: {
             slidesPerView: 6,
@@ -37,7 +37,7 @@ export const ScrollingParticles = ({ items }: TScrollingParticles) => {
         autoplay={{
           delay: 1,
         }}
-        speed={4000} // Adjust this value to control the speed of the animation
+        speed={4000}
         spaceBetween={20}
         slidesPerView={4}
       >
@@ -46,8 +46,9 @@ export const ScrollingParticles = ({ items }: TScrollingParticles) => {
             <Image
               src={item.image}
               alt={item.name}
-              width={80}
-              height={80}
+              width={800}
+              height={800}
+              loading="lazy"
               className="rounded-full brightness-200 filter transition-opacity duration-500 lg:h-20 lg:w-20"
             />
           </SwiperSlide>

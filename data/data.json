@@ -12,11 +12,16 @@
         },
         {
           "text": "SOLUTIONS",
-          "textColor": "#fef3c7"
+          "textColor": "#FEF3C7"
         }
       ]
     },
-    "subheading": "Data ACCESS Solutions",
+    "subheading": [
+      { "text": "Data ACCESS Decisions" },
+      { "text": "Problems ACCESS Solutions" },
+      { "text": "Procedures ACCESS Systems" },
+      { "text": "Complexity ACCESS Efficiency" }
+    ],
     "description": "Ensuring systems with transparency and control",
     "logo": "/images/ACCESSPH.png",
     "more": {
@@ -47,15 +52,18 @@
     },
     {
       "title": "Pricing",
-      "href": "/pricing"
+      "href": "/pricing",
+      "disabled": true
     },
     {
       "title": "Blog",
-      "href": "/blog"
+      "href": "/blog",
+      "disabled": true
     },
     {
       "title": "About Us",
-      "href": "/about"
+      "href": "/about",
+      "disabled": true
     }
   ],
   "LOGOS": [
@@ -113,13 +121,14 @@
         {
           "text": "Services",
           "underline": {
-            "color": "#E2E2B6"
+            "color": "#03346E"
           }
         }
       ]
     },
     "subheading": "Partner with us to deliver innovative, scalable systems that empower your Institution to thrive in a rapidly changing world.",
     "more": {
+      "image": "/images/ACCESS.png",
       "title": "What we do:",
       "heading": {
         "text": "Crafting the Right Solutions for You",
@@ -136,33 +145,151 @@
       "subheading": "We deliver custom system solutions to help institutions run smoothly and efficiently, so they can focus on their core goals.",
       "exp": "/images/EXPERIENCE.png"
     },
+    "landingPageDisplay": 2,
     "items": [
       {
         "id": 1,
         "name": "ACCESS School Management System",
         "type": "Product",
-        "description": "A fully-integrated, customizable, extensible school management system.",
-        "image": "/images/ACCESS-SCHOOL-SYSTEM.png"
+        "description": "The AccessPH School Management System handles tasks like enrollment, grading, attendance, and finances, making it easier for schools to focus on teaching and student success.",
+        "image": "/images/ACCESS-SCHOOL-SYSTEM.png",
+        "details": [
+          {
+            "heading": "Made for Philippine Private Schools.",
+            "subheading": "Every private school has its own standards, procedures, policies. The system can fit [or customized for] these varying setups."
+          },
+          {
+            "heading": "Integrate your existing systems. Let's connect everything.",
+            "subheading": "ACCESS School System has an API where your developers can use to integrate with your existing systems. We can also develop along-side with your existing ones to easily integrate with ACCESS. BigData is inevitable."
+          }
+        ],
+        "features": {
+          "heading": "Functions and Features",
+          "items": [
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Registration and Enrollment",
+              "sub": [
+                "Online pre-registration",
+                "Real-time availability of schedules",
+                "Class program in varying formats",
+                "Curriculum evaluation"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Student Records Management",
+              "sub": [
+                "Student Profile Management",
+                "Grades Reports",
+                "Student Financial Accounts",
+                "Regulatory Report Generation",
+                "Student Affairs and Guidance Office undertakings",
+                "Document Verification"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Teacher Class Management",
+              "sub": [
+                "Class Roster",
+                "Class Grades Management",
+                "Attendance Reports and notification",
+                "Syllabi and lessons archiving"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Module-centric User Permission",
+              "sub": [
+                "Individually define roles",
+                "Pre-defined group roles (General User, Teacher, Cashier, Registrar, Finance, Dean/Head)",
+                "Single-Sign-On integration"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Financial Accounts Management",
+              "sub": [
+                "Flexible/Programmable Assessment Computation",
+                "Daily Transaction Report",
+                "Historical Account Ledger and Statement",
+                "Examination/Term Permit Generation",
+                "Aggregated A/R Reports",
+                "Departmental Budget Report"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Automated Regular Reporting",
+              "sub": [
+                "Receive reports through email",
+                "SMS [optional] notifcations",
+                "Secure no-login report URLs",
+                "Exploit your Google Drive storage",
+                "Google Calendar schedule integration"
+              ]
+            }
+          ]
+        }
       },
+
       {
         "id": 2,
-        "name": "ACCESS Sims",
-        "type": "Product",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque tortor erat, maximus vehicula arcu mattis ut. Nam sed nibh rutrum, iaculis risus at, rhoncus orci. ",
-        "image": "/images/ACCESS.png"
+        "name": "Systems Services",
+        "type": "Service",
+        "description": "Comprehensive solutions for installation, configuration, and management of web servers, security systems, and automation technologies.",
+        "image": "/images/ACCESS.png",
+        "features": {
+          "heading": "List of Services",
+          "items": [
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Web Systems/Sites Development",
+              "sub": [
+                "Improving your sites with SEO practices",
+                "Design and development of websites and web applications",
+                "Optimization for user experience (UX) and performance"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Web Server Installation, and Management",
+              "sub": [
+                "Shared Hosting",
+                "Virtual Private Server (VPS)",
+                "Cloud Services (Google Cloud™, AWS™, DigitalOcean™)"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Windows® Internet Information Services (IIS)",
+              "sub": [
+                "NGINx and Apache on Linux (Debian, Ubuntu, FreeBSD)",
+                "SSL/TLS certificate setup and renewal",
+                "DNS and domain setup"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Systems Security for Web Services",
+              "sub": [
+                "ufw (Uncomplicated Firewall)",
+                "fail2ban (Preventing Brute-force attacks)",
+                "WAF (Web Application Firewall)",
+                "mod-security (Open-source firewall for Apache/NGINx)",
+                "Secure Web Gateway (Advanced security control for traffic)",
+                "Zero-Trust Network Access (Secure access control)"
+              ]
+            }
+          ]
+        }
       },
       {
         "id": 3,
-        "name": "Systems Services",
-        "type": "Service",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque tortor erat, maximus vehicula arcu mattis ut. Nam sed nibh rutrum, iaculis risus at, rhoncus orci. ",
-        "image": "/images/ACCESS.png"
-      },
-      {
-        "id": 4,
-        "name": "Lorem Ipsum",
-        "type": "Service",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque tortor erat, maximus vehicula arcu mattis ut. Nam sed nibh rutrum, iaculis risus at, rhoncus orci. ",
+        "name": "ACCESS Sims",
+        "type": "Product",
+        "description": "Sales and Inventory Management System - for your [e]store",
         "image": "/images/ACCESS.png"
       }
     ]

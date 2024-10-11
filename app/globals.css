@@ -11,20 +11,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.carousel {
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 0 24px;
-}
-
-.carousel-item {
-  scroll-snap-align: start;
-}
-
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -44,9 +30,11 @@ body {
 .polygon-path {
   clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 50%, 0% 0%);
 }
-
 .mb-polygon-path {
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0 90%, 0% 0%);
+}
+.rhombus-path {
+  clip-path: polygon(43% 0, 100% 0, 100% 0, 93% 100%, 0 100%, 8% 0);
 }
 
 .swiper-wrapper {
@@ -64,7 +52,11 @@ body {
 
 @layer base {
   :root {
-    --brand: 206 59% 64%;
+    --brand-primary: #03346e;
+    --brand-secondary: #336a9e;
+    --brand-accent: #e2e2b6;
+    --brand-darken: #021526;
+
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -125,7 +117,7 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-dmSans text-foreground;
   }
   h1 {
     @apply font-oswald text-5xl font-bold lg:text-6xl lg:tracking-[2px] xl:text-7xl;
@@ -139,6 +131,6 @@ body {
     @apply font-dmSans font-light tracking-tight;
   }
   .gradient-bg {
-    @apply bg-gradient-to-b from-[#021526] from-0% via-[#03346E] via-[44%] to-brand to-100% lg:bg-gradient-to-r;
+    @apply bg-gradient-to-b from-brand-darken from-0% via-brand via-[44%] to-brand-secondary to-100% lg:bg-gradient-to-r;
   }
 }
