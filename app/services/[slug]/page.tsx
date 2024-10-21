@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import data from '@/data/data.json'
 import { StyledHeading } from '@/components/ui/styled-heading'
-import { BadgeCheck } from 'lucide-react'
+import { BadgeCheck, Quote } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // Pre-generate paths for all services in the data.json
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
+const ServiceDetails = ({ params }: { params: { slug: string } }) => {
   const id = parseInt(params.slug)
   const service = data.SERVICES.items.find((item) => item.id == id)
 
@@ -24,7 +24,7 @@ export default function Page({ params }: { params: { slug: string } }) {
           width={800}
           height={800}
           loading="lazy"
-          className="absolute -z-10 mx-auto mt-12 w-full opacity-5 lg:w-[20%]"
+          className="absolute -z-10 mx-auto mt-12 w-full opacity-5 sm:w-[60%] md:w-[40%] lg:w-[20%]"
         />
         <div className="relative mx-auto max-w-screen-xl p-6 pt-8">
           <div className="relative space-y-8 text-center text-white md:space-y-6">
@@ -49,21 +49,21 @@ export default function Page({ params }: { params: { slug: string } }) {
       </section>
 
       <section className="relative z-20 mx-auto max-w-screen-xl px-6">
-        <div className="flex flex-col py-8">
-          {service?.details &&
-            service?.details.map((detail, index) => (
+        <div className="flex w-full flex-col py-8">
+          {service?.details?.map((detail, index) => (
+            <div key={index} data-aos="fade" className="w-full py-8">
               <div
-                key={index}
-                data-aos="fade"
-                className={cn('space-y-4 py-8 text-left', {
-                  'text-right': index % 2 == 1,
+                className={cn('space-y-4 text-justify sm:text-left lg:w-3/5', {
+                  'ml-auto sm:text-right': index % 2 == 1,
                 })}
               >
+                <Quote className="inline-block" />
                 <h2>{detail?.heading}</h2>
-                <p>{detail?.subheading}</p>
-                <hr />
+                <p className="text-lg">{detail?.subheading}</p>
               </div>
-            ))}
+              <hr className="mt-4" />
+            </div>
+          ))}
         </div>
 
         <div className="flex flex-col items-center justify-center py-8">
@@ -120,3 +120,5 @@ export default function Page({ params }: { params: { slug: string } }) {
     </div>
   )
 }
+
+export default ServiceDetails

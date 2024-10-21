@@ -43,9 +43,10 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        'fixed z-30 w-screen border-b-[1px] border-white/10 bg-brand-darken px-2 text-white backdrop-blur-sm transition duration-200 ease-linear lg:justify-around lg:px-16',
+        'fixed z-30 w-screen border-b-[1px] border-black/10 bg-white px-2 text-black backdrop-blur-sm transition duration-200 ease-linear lg:justify-around lg:px-16',
         {
-          'bg-transparent': isTransparent && pathname === '/',
+          'border-white/10 bg-transparent text-white':
+            isTransparent && pathname === '/',
         }
       )}
     >
@@ -78,16 +79,14 @@ const Navbar = () => {
               <li key={link.title}>
                 <Button
                   variant="link"
-                  className={
-                    pathname === link.href ||
-                    (link.href !== '/' && pathname.startsWith(link.href))
-                      ? 'text-white hover:no-underline'
-                      : 'text-white'
-                  }
+                  className={cn('text-black', {
+                    'hover:no-underline':
+                      pathname === link.href ||
+                      (link.href !== '/' && pathname.startsWith(link.href)),
+                    'text-white': isTransparent && pathname === '/',
+                  })}
                 >
-                  <Link href={link.disabled ? '#' : link.href}>
-                    {link.title}
-                  </Link>
+                  <Link href={link.href}>{link.title}</Link>
                 </Button>
                 {(pathname === link.href ||
                   (link.href !== '/' && pathname.startsWith(link.href))) && (
@@ -97,7 +96,12 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <div className="flex items-center justify-end gap-1 p-4 text-white lg:w-[20%]">
+        <div
+          className={cn(
+            'flex items-center justify-end gap-1 p-4 text-black lg:w-[20%]',
+            { 'text-white': isTransparent && pathname === '/' }
+          )}
+        >
           <Button variant="ghost" className="h-8 w-8">
             <FacebookIcon className="flex-shrink-0" />
           </Button>
@@ -119,7 +123,7 @@ const Navbar = () => {
                   )}
                 >
                   <Link
-                    href={link.disabled ? '#' : link.href}
+                    href={link.href}
                     data-aos="fade"
                     data-aos-easing="ease-in-sine"
                     data-aos-delay={index * 250}

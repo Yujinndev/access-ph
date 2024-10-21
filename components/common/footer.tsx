@@ -42,7 +42,7 @@ const Footer = () => {
               {data.LINKS?.map((link) => (
                 <li key={link.title}>
                   <Link
-                    href={link.disabled ? '#' : link.href}
+                    href={link.href}
                     className="font-dmSans font-light underline-offset-8 hover:underline"
                   >
                     {link.title}
@@ -71,9 +71,14 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex w-full flex-col items-center justify-center bg-brand p-4 text-white lg:flex-row">
+      <div className="flex w-full flex-col items-center justify-center gap-1 bg-brand p-4 text-white lg:flex-row">
         © 2016-2024 ACCESS Software Solutions:
-        <a href="mailto:info@accessph.net">info@accessph.net</a>
+        <a
+          href="mailto:info@accessph.net"
+          className="underline underline-offset-8"
+        >
+          info@accessph.net
+        </a>
       </div>
     </footer>
   )

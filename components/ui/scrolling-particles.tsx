@@ -49,7 +49,7 @@ export const ScrollingParticles = ({ items }: TScrollingParticles) => {
               width={800}
               height={800}
               loading="lazy"
-              className="rounded-full brightness-200 filter transition-opacity duration-500 lg:h-20 lg:w-20"
+              className="brightness-200 filter transition-opacity duration-500 lg:h-20 lg:w-20"
             />
           </SwiperSlide>
         ))}

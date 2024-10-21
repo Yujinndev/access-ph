@@ -1,45 +1,24 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import data from '@/data/data.json'
-import { StyledHeading } from '@/components/ui/styled-heading'
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { ArrowUpRight } from 'lucide-react'
+import Hero from '@/components/common/hero'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { ArrowUpRight } from 'lucide-react'
+import { StyledHeading } from '@/components/ui/styled-heading'
 
 const Services = () => {
   return (
     <div className="relative z-20">
-      <section className="gradient-bg relative z-20 flex h-[30rem] w-full flex-col items-center justify-center gap-4 gap-y-1 pt-20">
-        <Image
-          src={data?.BRAND?.logo}
-          alt={data?.BRAND?.name}
-          width={800}
-          height={800}
-          loading="lazy"
-          className="absolute -z-10 mx-auto w-[20%] opacity-5"
-        />
-        <div className="relative mx-auto max-w-screen-xl">
-          <div className="relative -mt-8 space-y-4 text-center text-white md:space-y-6 lg:-mt-16 lg:space-y-8">
-            <StyledHeading
-              className="text-[3.75rem] md:text-[4rem] lg:text-[4.5rem] lg:leading-normal"
-              text={data?.SERVICES?.heading?.text}
-              highlights={data?.SERVICES?.heading?.highlights}
-            />
-            <p
-              className="mx-auto w-2/3 font-dmSans text-lg font-light tracking-tight lg:text-xl xl:text-2xl"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              {data?.SERVICES?.subheading}
-            </p>
-          </div>
-        </div>
-      </section>
+      <Hero
+        heading={data?.SERVICES?.heading}
+        subheading={data?.SERVICES?.subheading}
+      />
 
-      <section className="relative z-20 mx-auto max-w-screen-xl">
+      <section className="relative z-20 mx-auto max-w-screen-xl px-6">
         <div className="grid place-content-center place-items-center pt-20 md:grid-cols-2">
-          <div className="space-y-8 px-6">
+          <div className="space-y-8">
             <div>
               <h3
                 className="font-oswald text-3xl font-bold"

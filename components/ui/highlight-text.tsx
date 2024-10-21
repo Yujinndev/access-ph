@@ -20,7 +20,10 @@ export const HighlightText = ({
       {text}{' '}
       {underline && (
         <svg
-          className={cn('absolute -bottom-5 left-0 w-full', className)}
+          className={cn(
+            'absolute -bottom-6 left-0 w-full xl:-bottom-7',
+            className
+          )}
           width="260"
           height="31"
           viewBox="0 0 260 31"

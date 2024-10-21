@@ -83,7 +83,7 @@ export default function Home() {
         />
       </div>
 
-      <section className="relative overflow-hidden lg:h-[30rem]">
+      <section className="relative mb-28 mt-12 overflow-hidden lg:h-[30rem]">
         <div className="gradient-bg polygon-path absolute hidden h-full w-5/12 lg:block lg:w-[46%]" />
         <div className="gradient-bg mb-polygon-path absolute block h-[40%] w-full lg:hidden" />
 

@@ -52,12 +52,11 @@
     },
     {
       "title": "Pricing",
-      "href": "/pricing",
-      "disabled": true
+      "href": "/pricing"
     },
     {
       "title": "Blog",
-      "href": "/blog",
+      "href": "/blog/1",
       "disabled": true
     },
     {
@@ -76,12 +75,16 @@
       "image": "/images/AMAZON.png"
     },
     {
-      "name": "CANVA",
-      "image": "/images/CANVA.png"
+      "name": "HIVELOCITY",
+      "image": "/images/HIVELOCITY.png"
     },
     {
-      "name": "QUORA",
-      "image": "/images/QUORA.png"
+      "name": "DIGITALOCEAN",
+      "image": "/images/DIGITALOCEAN.png"
+    },
+    {
+      "name": "GODADDY",
+      "image": "/images/GODADDY.png"
     }
   ],
   "FAQs": {
@@ -157,6 +160,18 @@
           {
             "heading": "Made for Philippine Private Schools.",
             "subheading": "Every private school has its own standards, procedures, policies. The system can fit [or customized for] these varying setups."
+          },
+          {
+            "heading": "Integrate your existing systems. Let's connect everything.",
+            "subheading": "ACCESS School System has an API where your developers can use to integrate with your existing systems. We can also develop along-side with your existing ones to easily integrate with ACCESS. BigData is inevitable."
+          },
+          {
+            "heading": "Don't let colors fool you. Define yours.",
+            "subheading": "Design customizations -- system website and reports -- are already built-in."
+          },
+          {
+            "heading": "\"Wait.... There's more.\"",
+            "subheading": "Modules that can improve other schools can be developed with no additional charges. Upgrades and updates are automatically served to all deployments. We do love to improve your school system."
           },
           {
             "heading": "Integrate your existing systems. Let's connect everything.",
@@ -293,5 +308,101 @@
         "image": "/images/ACCESS.png"
       }
     ]
+  },
+  "PRICING": {
+    "heading": {
+      "text": "Our Pricing",
+      "highlights": [
+        {
+          "text": "Pricing",
+          "underline": {
+            "color": "#03346E"
+          }
+        }
+      ]
+    },
+    "subheading": "Partner with us to deliver innovative, scalable systems that empower your Institution to thrive in a rapidly changing world.",
+
+    "plans": [
+      {
+        "name": "Startup",
+        "description": "For smaller schools",
+        "price": {
+          "text": "PHP15",
+          "desc": "per student per month",
+          "highlights": [
+            {
+              "text": "PHP15",
+              "textColor": "#03346E",
+              "underline": {
+                "color": "#E2E2B6"
+              }
+            }
+          ]
+        },
+        "cta": {
+          "text": "Get Started",
+          "link": "#"
+        },
+        "perks": [
+          { "Deployment": "Cloud-based, quick setup" },
+          {
+            "Storage": "50GB included"
+          },
+          {
+            "Support": "Email support with 24-hour response time"
+          },
+          {
+            "Updates": "Regular feature and security updates"
+          }
+        ],
+        "styles": { "background-color": "#FFFFFF", "color": "#000000" }
+      },
+      {
+        "name": "Enterprise",
+        "description": "For advanced customization",
+        "price": {
+          "text": "CUSTOM",
+          "desc": "Customize your price",
+          "highlights": [
+            {
+              "text": "CUSTOM",
+              "textColor": "#FFFFFF",
+              "underline": {
+                "color": "#E2E2B6"
+              }
+            }
+          ]
+        },
+        "cta": {
+          "text": "Contact Sales",
+          "link": "#"
+        },
+        "perks": [
+          { "Deployment": "Cloud or on-premise options" },
+          { "Storage": "100GB included, customizable for larger needs" },
+          { "Support": "Priority support with a dedicated account manager" },
+          {
+            "Customizations": "Tailored modules and features, API access for third-party systems"
+          }
+        ],
+        "styles": { "background-color": "#03346E", "color": "#FFFFFF" }
+      }
+    ]
+  },
+  "BLOGS": {
+    "heading": {
+      "text": "Our Digital Insights",
+      "highlights": [
+        {
+          "text": "Insights",
+          "underline": {
+            "color": "#03346E"
+          }
+        }
+      ]
+    },
+    "subheading": "Sharing knowledge, sparking innovation, one post at a time",
+    "itemsPerPage": 3
   }
 }
