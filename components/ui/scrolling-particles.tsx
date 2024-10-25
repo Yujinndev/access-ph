@@ -4,11 +4,13 @@ import Image, { StaticImageData } from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper/modules'
 import 'swiper/css'
+import Link from 'next/link'
 
 type TScrollingParticles = {
   items: {
     name: string
     image: StaticImageData | string
+    href: string
   }[]
 }
 
@@ -43,14 +45,19 @@ export const ScrollingParticles = ({ items }: TScrollingParticles) => {
       >
         {[...items, ...items].map((item, index) => (
           <SwiperSlide key={index} className="z-30 m-0">
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={800}
-              height={800}
-              loading="lazy"
-              className="brightness-200 filter transition-opacity duration-500 lg:h-20 lg:w-20"
-            />
+            <Link
+              href={item.href}
+              target={item.href !== '#' ? '_blank' : '_parent'}
+            >
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={800}
+                height={800}
+                loading="lazy"
+                className="h-12 w-12 brightness-200 filter transition-opacity duration-500 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-20 lg:w-20"
+              />
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

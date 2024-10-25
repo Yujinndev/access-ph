@@ -45,7 +45,12 @@ export default function Home() {
             data-aos-duration="1000"
           />
           <div className="relative space-y-4 md:hidden">
-            <div className="absolute inset-x-0 m-auto mt-8 h-80 w-80 rounded-full bg-brand-accent lg:hidden" />
+            <div
+              className="absolute inset-x-0 m-auto mt-8 h-80 w-80 rounded-full bg-brand-accent lg:hidden"
+              data-aos="zoom-out-left"
+              data-aos-delay="500"
+              data-aos-duration="2000"
+            />
 
             <Image
               src={data?.BRAND?.more?.exp}
@@ -62,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="space-y-16 pb-40 pt-20 text-center lg:pt-40">
+      <div className="space-y-16 py-20 text-center lg:pt-40">
         <div className="relative flex w-full flex-col items-center space-y-6 px-6">
           <StyledHeading
             text={data?.SERVICES?.heading?.text}
@@ -85,7 +90,7 @@ export default function Home() {
 
       <section className="relative mb-28 mt-12 overflow-hidden lg:h-[30rem]">
         <div className="gradient-bg polygon-path absolute hidden h-full w-5/12 lg:block lg:w-[46%]" />
-        <div className="gradient-bg mb-polygon-path absolute block h-[40%] w-full lg:hidden" />
+        <div className="gradient-bg mb-polygon-path absolute block h-[16rem] w-full lg:hidden" />
 
         <div className="relative m-auto grid h-full max-w-screen-xl flex-col items-center justify-center gap-20 px-6 lg:grid-cols-7">
           <div className="relative m-auto mt-8 w-full space-y-6 text-center text-white lg:col-span-3 lg:m-0 lg:w-4/5 lg:text-left">

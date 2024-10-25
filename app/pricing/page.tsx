@@ -17,11 +17,11 @@ const Pricing = () => {
         <div className="grid gap-x-12 py-20 pt-28 lg:grid-cols-2">
           {data?.PRICING?.plans?.map((plan) => (
             <div key={plan.name} data-aos="fade" data-aos-duration="1000">
-              <h2 className="text-center text-xl text-brand lg:text-2xl">
+              <h2 className="text-center text-2xl text-brand lg:text-3xl">
                 {plan.name}
               </h2>
               <div
-                className="my-2 min-h-[32rem] space-y-6 rounded-lg border-[1px] px-12 py-8"
+                className="my-2 min-h-[32rem] space-y-6 rounded-lg border-[1px] px-6 py-5 md:px-12 lg:py-8"
                 style={{
                   background: plan?.styles?.['background-color'],
                 }}
@@ -37,7 +37,7 @@ const Pricing = () => {
                 <StyledHeading
                   text={plan?.price?.text}
                   highlights={plan?.price?.highlights}
-                  animation="fade-right"
+                  animation="none"
                   className="text-4xl tracking-normal xl:text-6xl"
                 />
                 <p
@@ -62,7 +62,7 @@ const Pricing = () => {
                       {Object.entries(obj).map(([key, value], i) => (
                         <div
                           key={i}
-                          className="flex gap-1"
+                          className="flex flex-col gap-1 md:flex-row"
                           style={{
                             color: plan?.styles?.['color'],
                           }}
