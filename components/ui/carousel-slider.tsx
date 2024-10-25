@@ -35,14 +35,14 @@ export const CarouselSlider = ({ numItems, items }: TCarouselSlider) => {
               key={index}
               className="relative !h-auto !w-auto shrink-0 rounded-lg border-b border-l border-t border-gray-200 bg-brand text-white shadow-sm"
             >
-              <div className="relative flex h-[28rem] max-w-[18rem] flex-col justify-between gap-4 p-3 lg:max-w-[28rem] lg:p-4">
+              <div className="relative flex h-[28rem] max-w-[18rem] flex-col justify-between gap-4 p-3 sm:max-w-[22rem] md:max-w-[25rem] lg:max-w-[28rem] lg:p-4">
                 <div className="relative h-[18rem] w-full overflow-hidden rounded-md bg-white">
                   <Image
                     src={item.image}
                     alt={item.name}
                     width={800}
                     height={800}
-                    className="h-full w-[18rem] object-contain lg:w-[28rem]"
+                    className="h-full w-[18rem] object-contain sm:w-[22rem] md:w-[25rem] lg:w-[28rem]"
                   />
                 </div>
                 <div className="relative h-[10rem] w-full overflow-clip text-clip rounded-md bg-[#D9D9D9]/10 px-3 py-3 lg:px-5">

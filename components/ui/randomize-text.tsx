@@ -5,7 +5,6 @@ export const RandomizedText = ({ data }: { data: { text: string }[] }) => {
   const [randomSubheading, setRandomSubheading] = useState('')
 
   useEffect(() => {
-    // Pick a random subheading from the array
     const randomIndex = Math.floor(Math.random() * data.length)
     setRandomSubheading(data[randomIndex].text)
   }, [data])

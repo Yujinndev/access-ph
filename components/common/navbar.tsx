@@ -46,7 +46,7 @@ const Navbar = () => {
         'fixed z-30 w-screen border-b-[1px] border-black/10 bg-white px-2 text-black backdrop-blur-sm transition duration-200 ease-linear lg:justify-around lg:px-16',
         {
           'border-white/10 bg-transparent text-white':
-            isTransparent && pathname === '/',
+            isTransparent && pathname === '/' && !isMenuOpen,
         }
       )}
     >
@@ -55,7 +55,9 @@ const Navbar = () => {
           <div className="block md:hidden">
             <Button
               variant="link"
-              className="p-0 text-white"
+              className={cn('p-0 text-black', {
+                'text-white': isTransparent && pathname === '/' && !isMenuOpen,
+              })}
               onClick={() => setIsMenuOpen((prev) => !prev)}
             >
               {isMenuOpen ? <X /> : <MenuIcon />}
@@ -99,11 +101,17 @@ const Navbar = () => {
         <div
           className={cn(
             'flex items-center justify-end gap-1 p-4 text-black lg:w-[20%]',
-            { 'text-white': isTransparent && pathname === '/' }
+            { 'text-white': isTransparent && pathname === '/' && !isMenuOpen }
           )}
         >
-          <Button variant="ghost" className="h-8 w-8">
-            <FacebookIcon className="flex-shrink-0" />
+          <Button
+            variant="ghost"
+            className="h-10 w-10 rounded-full border-[1px] border-opacity-5 p-4"
+            asChild
+          >
+            <Link href={data?.CONTACT?.fb} target="_blank">
+              <FacebookIcon className="flex-shrink-0" strokeWidth={1.5} />
+            </Link>
           </Button>
         </div>
 
