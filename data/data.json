@@ -68,22 +68,27 @@
   "LOGOS": [
     {
       "name": "GOOGLE",
+      "href": "#",
       "image": "/images/GOOGLE.png"
     },
     {
       "name": "AMAZON",
+      "href": "#",
       "image": "/images/AMAZON.png"
     },
     {
       "name": "HIVELOCITY",
+      "href": "https://my.hivelocity.net/sign-up?referralCode=JOBQ",
       "image": "/images/HIVELOCITY.png"
     },
     {
       "name": "DIGITALOCEAN",
+      "href": "https://www.digitalocean.com/?refcode=20d16957b802&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge",
       "image": "/images/DIGITALOCEAN.png"
     },
     {
       "name": "GODADDY",
+      "href": "#",
       "image": "/images/GODADDY.png"
     }
   ],
@@ -322,7 +327,6 @@
       ]
     },
     "subheading": "Partner with us to deliver innovative, scalable systems that empower your Institution to thrive in a rapidly changing world.",
-
     "plans": [
       {
         "name": "Startup",
@@ -342,7 +346,7 @@
         },
         "cta": {
           "text": "Get Started",
-          "link": "#"
+          "link": "/about#contact"
         },
         "perks": [
           { "Deployment": "Cloud-based, quick setup" },
@@ -404,5 +408,25 @@
     },
     "subheading": "Sharing knowledge, sparking innovation, one post at a time",
     "itemsPerPage": 3
+  },
+  "ABOUT": {
+    "heading": {
+      "text": "Where ideas meet real-world Solutions",
+      "highlights": [
+        {
+          "text": "Solutions",
+          "underline": {
+            "color": "#03346E"
+          }
+        }
+      ]
+    },
+    "subheading": "With technical and legal considerations while offering as a service to other schools, it was rather prepared as a commercial offering. Partnership with the defunct PCRx Computing Solutions (PCRx) was established late 2008 paving the way the second major modifications of the system and its features. In early 2017, ACCESS Software Solutions was registered as an independent business entity and offer ACCESS School Management System to Philippine private schools. This stage birthed a renewed structure of the system, its codes, modules, database, and templates -- making it more flexible to accommodate and integrate a wider range of solutions."
+  },
+  "CONTACT": {
+    "fb": "https://www.facebook.com/accessph",
+    "linkedIn": "https://www.linkedin.com/in/aingel",
+    "phone": "0917 583 0701",
+    "email": "info@accessph.net"
   }
 }

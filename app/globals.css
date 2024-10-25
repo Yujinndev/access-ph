@@ -128,7 +128,7 @@
     @apply font-oswald text-2xl lg:text-3xl;
   }
   p {
-    @apply font-dmSans font-light tracking-tight;
+    @apply font-dmSans text-lg font-light tracking-tight;
   }
   .gradient-bg {
     @apply bg-gradient-to-b from-brand-darken from-0% via-brand via-[44%] to-brand-secondary to-100% lg:bg-gradient-to-r;
