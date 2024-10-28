@@ -1,8 +1,6 @@
 'use client'
 
 import { StyledHeading } from '@/components/ui/styled-heading'
-import Image from 'next/image'
-import data from '@/data/data.json'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -16,6 +14,8 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { sendContactEmailAction } from '@/app/_actions'
+import data from '@/data/data.json'
 
 export const contactFormSchema = z.object({
   name: z.string().min(1),
@@ -24,10 +24,10 @@ export const contactFormSchema = z.object({
   message: z.string().min(1).max(500),
 })
 
-export type contactFormSchemaType = typeof contactFormSchema
+export type contactFormSchemaType = z.infer<typeof contactFormSchema>
 
 const AboutUs = () => {
-  const form = useForm<z.infer<contactFormSchemaType>>({
+  const form = useForm<contactFormSchemaType>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: '',
@@ -37,16 +37,20 @@ const AboutUs = () => {
     },
   })
 
-  function onSubmit(values: z.infer<contactFormSchemaType>) {
-    console.log(values)
+  const onSubmit = async (values: contactFormSchemaType) => {
+    try {
+      await sendContactEmailAction(values)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
     <div className="relative overflow-x-hidden">
-      <div className="relative py-20">
+      <div className="relative">
         <section className="z-20 mx-auto max-w-screen-xl">
           <div className="gap-4 lg:flex lg:w-7/12">
-            <div className="space-y-8 px-6 pb-24 pt-12 lg:py-44">
+            <div className="space-y-8 px-6 pb-24 pt-28 lg:py-44">
               <StyledHeading
                 text={data?.ABOUT?.heading?.text}
                 highlights={data?.ABOUT?.heading?.highlights}
@@ -60,15 +64,7 @@ const AboutUs = () => {
                 {data?.ABOUT?.subheading}
               </p>
             </div>
-            <Image
-              className="w-full bg-neutral-100 object-cover lg:absolute lg:right-0 lg:h-full lg:w-5/12 lg:rounded-bl-full"
-              src="/images/ACCESS.png"
-              alt="access"
-              width={800}
-              height={800}
-              data-aos="zoom-out-left"
-              data-aos-delay="500"
-            />
+            <div className="w-full bg-blue-300 object-cover lg:absolute lg:right-0 lg:h-full lg:w-5/12 lg:rounded-bl-full" />
           </div>
         </section>
       </div>
@@ -155,14 +151,17 @@ const AboutUs = () => {
                     </FormItem>
                   )}
                 />
-                <Button className="w-full rounded-full bg-brand py-6 text-lg">
+                <Button
+                  className="w-full rounded-full bg-brand py-6 text-lg"
+                  disabled={form.formState.isLoading}
+                >
                   Submit
                 </Button>
               </form>
             </Form>
           </div>
         </section>
-        <div className="absolute left-0 top-0 hidden h-full w-2/6 rounded-e-full bg-neutral-100 lg:block" />
+        <div className="absolute left-0 top-0 hidden h-full w-2/6 rounded-e-full bg-blue-300 lg:block" />
       </div>
     </div>
   )
