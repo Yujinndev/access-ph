@@ -56,13 +56,11 @@
     },
     {
       "title": "Blog",
-      "href": "/blog/1",
-      "disabled": true
+      "href": "/blog/1"
     },
     {
       "title": "About Us",
-      "href": "/about",
-      "disabled": true
+      "href": "/about"
     }
   ],
   "LOGOS": [
