@@ -80,6 +80,16 @@
       "image": "/images/HIVELOCITY.png"
     },
     {
+      "name": "CODEIUM",
+      "href": "https://codeium.com/profile/aingel",
+      "image": "/images/CODEIUM.png"
+    },
+    {
+      "name": "GITHUB",
+      "href": "https://github.com/aingelc12ell",
+      "image": "/images/GITHUB.png"
+    },
+    {
       "name": "DIGITALOCEAN",
       "href": "https://www.digitalocean.com/?refcode=20d16957b802&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge",
       "image": "/images/DIGITALOCEAN.png"
@@ -154,7 +164,7 @@
     "landingPageDisplay": 2,
     "items": [
       {
-        "id": 1,
+        "id": "school-management-system",
         "name": "ACCESS School Management System",
         "type": "Product",
         "description": "The AccessPH School Management System handles tasks like enrollment, grading, attendance, and finances, making it easier for schools to focus on teaching and student success.",
@@ -247,13 +257,92 @@
                 "Exploit your Google Drive storage",
                 "Google Calendar schedule integration"
               ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Student/Guardian Portal",
+              "sub": [
+                "Profile review",
+                "Finance transactions report",
+                "Grades reports",
+                "Teacher evaluation",
+                "Documents Request(Transcript, Diploma, Certificates, etc.)"
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Cloud/On-site Deployment",
+              "sub": [
+                "We can accommodate your choice of operating system (Linux, Windows, or MacOS) on virtual private server(VPS)",
+                "Dedicated [virtual] server, or your choice of hardware.",
+                "Also in Cloud, We recommend Google Cloud Platform."
+              ]
+            },
+            {
+              "image": "/images/ACCESS.png",
+              "title": "Advanced Basics",
+              "sub": [
+                "Works with your favorite browser.",
+                "Registration, Enrollment, Graduation and beyond."
+              ]
             }
           ]
-        }
+        },
+        "modules": [
+          {
+            "heading": "Enrollment",
+            "sub": [
+              {
+                "title": "Student Registration",
+                "items": [
+                  {
+                    "name": "Student Course Evaluation",
+                    "users": ["DHO"]
+                  },
+                  {
+                    "name": "Online pre-registration",
+                    "users": ["DHO"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Information Management",
+            "sub": [
+              {
+                "title": "Student Information",
+                "items": [
+                  {
+                    "name": "Update Student Registration",
+                    "users": ["TCH", "DHO", "ACCT", "CHR", "SAO", "REG"]
+                  },
+                  {
+                    "name": "Email Student Schedule",
+                    "users": ["TCH", "DHO", "SAO", "REG"]
+                  }
+                ]
+              },
+              {
+                "title": "Teacher Information",
+                "items": [
+                  {
+                    "name": "Teacher Registration",
+                    "users": ["SYSAD"]
+                  },
+                  {
+                    "name": "Class Load and Schedule",
+                    "users": ["DHO", "REG", "SYSAD"]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
 
       {
-        "id": 2,
+        "id": "systems-services",
         "name": "Systems Services",
         "type": "Service",
         "description": "Comprehensive solutions for installation, configuration, and management of web servers, security systems, and automation technologies.",
@@ -303,8 +392,9 @@
           ]
         }
       },
+
       {
-        "id": 3,
+        "id": "access-sims",
         "name": "ACCESS Sims",
         "type": "Product",
         "description": "Sales and Inventory Management System - for your [e]store",

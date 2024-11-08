@@ -11,22 +11,6 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  z-index: 50;
-  background-color: rgb(30, 30, 30);
-}
-
-::-webkit-scrollbar-thumb {
-  z-index: 50;
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
-}
-
 .polygon-path {
   clip-path: polygon(90% 0%, 100% 50%, 90% 100%, 0% 100%, 0 50%, 0% 0%);
 }
