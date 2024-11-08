@@ -1,8 +1,11 @@
 import Image from 'next/image'
 import data from '@/data/data.json'
 import { StyledHeading } from '@/components/ui/styled-heading'
-import { BadgeCheck, Quote } from 'lucide-react'
+import { ArrowRight, BadgeCheck, Quote } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { notFound } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 // Pre-generate paths for all services in the data.json
 export async function generateStaticParams() {
@@ -12,8 +15,12 @@ export async function generateStaticParams() {
 }
 
 const ServiceDetails = ({ params }: { params: { slug: string } }) => {
-  const id = parseInt(params.slug)
-  const service = data.SERVICES.items.find((item) => item.id == id)
+  const id = params.slug
+  const service = data.SERVICES.items.find((item) => item.id.toString() == id)
+
+  if (!service) {
+    notFound()
+  }
 
   return (
     <div className="relative z-20">
@@ -66,7 +73,7 @@ const ServiceDetails = ({ params }: { params: { slug: string } }) => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center py-8">
+        <div className="flex flex-col items-center justify-center pt-8">
           {service?.features?.heading && (
             <h2
               className="rhombus-path font-play relative z-30 m-auto w-max break-words border-[3px] border-brand-accent px-9 py-3 text-2xl tracking-wide text-brand backdrop-blur-[1px] lg:py-5 lg:text-4xl"
@@ -75,7 +82,7 @@ const ServiceDetails = ({ params }: { params: { slug: string } }) => {
               {service?.features?.heading}
             </h2>
           )}
-          <div className="mt-8 flex w-full flex-wrap gap-8 lg:mx-0 lg:mt-12 lg:pb-32">
+          <div className="mt-8 flex w-full flex-wrap gap-8 lg:mx-0 lg:mt-12 lg:pb-16">
             {service?.features?.items?.map((feature, index) => {
               const totalItems = service?.features?.items?.length
               const isLastRowSingle =
@@ -115,6 +122,20 @@ const ServiceDetails = ({ params }: { params: { slug: string } }) => {
               )
             })}
           </div>
+        </div>
+
+        <div className="flex justify-end">
+          {service?.modules && (
+            <Button
+              className="rounded-full bg-brand py-6 font-bold text-white hover:bg-brand-secondary"
+              asChild
+            >
+              <Link href={`/services/${id}/modules`} className="flex gap-4">
+                <span>View Modules</span>
+                <ArrowRight />
+              </Link>
+            </Button>
+          )}
         </div>
       </section>
     </div>
