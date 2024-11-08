@@ -1,7 +1,7 @@
 'use server'
 
+import { contactFormSchemaType } from '@/lib/schema/contact-form'
 import { sendEmail } from '@/lib/sendgrid'
-import { contactFormSchemaType } from '@/app/about/page'
 
 export const sendContactEmailAction = async (data: contactFormSchemaType) => {
   const { name, email, phone, message } = data

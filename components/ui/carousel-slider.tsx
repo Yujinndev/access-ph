@@ -8,7 +8,7 @@ import Link from 'next/link'
 type TCarouselSlider = {
   numItems: number
   items: {
-    id: number
+    id: number | string
     name: string
     description: string
     image: StaticImageData | string

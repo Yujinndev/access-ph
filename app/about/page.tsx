@@ -3,7 +3,6 @@
 import { StyledHeading } from '@/components/ui/styled-heading'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -16,15 +15,10 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { sendContactEmailAction } from '@/app/_actions'
 import data from '@/data/data.json'
-
-export const contactFormSchema = z.object({
-  name: z.string().min(1),
-  email: z.string().email().min(1),
-  phone: z.string(),
-  message: z.string().min(1).max(500),
-})
-
-export type contactFormSchemaType = z.infer<typeof contactFormSchema>
+import {
+  contactFormSchema,
+  contactFormSchemaType,
+} from '@/lib/schema/contact-form'
 
 const AboutUs = () => {
   const form = useForm<contactFormSchemaType>({
