@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { cn } from '@/lib/utils'
 import localFont from 'next/font/local'
-import Navbar from '@/components/common/navbar'
 import './globals.css'
 import 'aos/dist/aos.css'
 import Footer from '@/components/common/footer'
+import Header from '@/components/common/header'
 
 const dmSans = localFont({
   src: './fonts/DMSans.ttf',
@@ -36,7 +36,7 @@ export default function RootLayout({
           oswald.variable
         )}
       >
-        <Navbar />
+        <Header />
         <main className="pb-20">{children}</main>
         <Footer />
       </body>

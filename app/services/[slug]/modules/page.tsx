@@ -1,16 +1,11 @@
 import Image from 'next/image'
-import data from '@/data/data.json'
-import { notFound } from 'next/navigation'
 import ModuleTable from '@/components/module-table'
+import { notFound } from 'next/navigation'
+import { getData } from '@/utils/get-data'
 
-// Pre-generate paths for all services in the data.json
-export async function generateStaticParams() {
-  return data.SERVICES.items.map((service) => ({
-    slug: service.id.toString(),
-  }))
-}
+const ServiceModules = async ({ params }: { params: { slug: string } }) => {
+  const data = await getData()
 
-const ServiceModules = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
   const service = data.SERVICES.items.find((item) => item.id.toString() == id)
 

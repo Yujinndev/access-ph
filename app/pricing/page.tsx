@@ -1,14 +1,17 @@
-import data from '@/data/data.json'
+import React from 'react'
+import Link from 'next/link'
 import Hero from '@/components/common/hero'
 import { StyledHeading } from '@/components/ui/styled-heading'
-import React from 'react'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import { getData } from '@/utils/get-data'
 
-const Pricing = () => {
+const Pricing = async () => {
+  const data = await getData()
+
   return (
     <div className="relative z-20">
       <Hero
+        data={data}
         heading={data?.PRICING?.heading}
         subheading={data?.PRICING?.subheading}
       />

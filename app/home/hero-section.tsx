@@ -5,9 +5,9 @@ import { StyledHeading } from '@/components/ui/styled-heading'
 import { RandomizedText } from '@/components/ui/randomize-text'
 import { ScrollingParticles } from '@/components/ui/scrolling-particles'
 import Image from 'next/image'
-import data from '@/data/data.json'
+import { Root } from '@/lib/schema'
 
-const Hero = () => {
+const HeroLanding = async ({ data }: { data: Root }) => {
   return (
     <section className="hero gradient-bg relative z-20 flex h-screen flex-col items-center justify-center gap-4 gap-y-1 px-6 md:px-14 lg:gap-y-6 lg:px-20 xl:px-28">
       <Image
@@ -54,4 +54,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default HeroLanding

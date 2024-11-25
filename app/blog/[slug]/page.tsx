@@ -1,23 +1,15 @@
 import Image from 'next/image'
-import data from '@/data/data.json'
 import Hero from '@/components/common/hero'
 import { getAllBlogs } from '@/utils/blogs'
 import { format } from 'date-fns'
 import { cn } from '@/lib/utils'
-import BlogPagination from '../blog-pagination'
+import BlogPagination from '@/app/blog/blog-pagination'
+import { getData } from '@/utils/get-data'
 
-const ITEMS_PER_PAGE = data?.BLOGS?.itemsPerPage
+const Blog = async ({ params }: { params: { slug: string } }) => {
+  const data = await getData()
 
-export async function generateStaticParams() {
-  const blogs = getAllBlogs()
-  const totalPages = Math.ceil(blogs.length / ITEMS_PER_PAGE)
-
-  return Array.from({ length: totalPages }, (_, i) => ({
-    slug: (i + 1).toString(),
-  }))
-}
-
-export default function Blog({ params }: { params: { slug: string } }) {
+  const ITEMS_PER_PAGE = data?.BLOGS?.itemsPerPage
   const currentPage = parseInt(params.slug, 10) || 1
   const allBlogs = getAllBlogs()
 
@@ -35,6 +27,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
   return (
     <div className="relative z-20">
       <Hero
+        data={data}
         heading={data?.BLOGS?.heading}
         subheading={data?.BLOGS?.subheading}
       />
@@ -86,3 +79,5 @@ export default function Blog({ params }: { params: { slug: string } }) {
     </div>
   )
 }
+
+export default Blog

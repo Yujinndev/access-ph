@@ -1,17 +1,20 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import data from '@/data/data.json'
 import { cn } from '@/lib/utils'
 import { ArrowUpRight } from 'lucide-react'
 import Hero from '@/components/common/hero'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { StyledHeading } from '@/components/ui/styled-heading'
+import { getData } from '@/utils/get-data'
 
-const Services = () => {
+const Services = async () => {
+  const data = await getData()
+
   return (
     <div className="relative z-20">
       <Hero
+        data={data}
         heading={data?.SERVICES?.heading}
         subheading={data?.SERVICES?.subheading}
       />

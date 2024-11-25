@@ -1,7 +1,5 @@
-'use client'
-
 import Image from 'next/image'
-import Hero from '@/app/home/hero-section'
+import HeroLanding from '@/app/home/hero-section'
 import {
   Accordion,
   AccordionContent,
@@ -10,12 +8,14 @@ import {
 } from '@/components/ui/accordion'
 import { CarouselSlider } from '@/components/ui/carousel-slider'
 import { StyledHeading } from '@/components/ui/styled-heading'
-import data from '@/data/data.json'
+import { getData } from '@/utils/get-data'
 
-export default function Home() {
+const Home = async () => {
+  const data = await getData()
+
   return (
     <div className="relative min-h-screen overflow-x-hidden">
-      <Hero />
+      <HeroLanding data={data} />
 
       <section className="relative z-20 mx-auto max-w-screen-xl" id="more">
         <div className="grid place-content-center place-items-center pt-20 md:grid-cols-2">
@@ -133,3 +133,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home

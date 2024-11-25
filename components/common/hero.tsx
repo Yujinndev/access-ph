@@ -1,21 +1,14 @@
 import Image from 'next/image'
-import data from '@/data/data.json'
 import { StyledHeading } from '@/components/ui/styled-heading'
+import { Heading, Root } from '@/lib/schema'
 
-type THeading = {
-  text: string
-  highlights: {
-    text: string
-    underline: {
-      color: string
-    }
-  }[]
-}
 const Hero = ({
+  data,
   heading,
   subheading,
 }: {
-  heading: THeading
+  data: Root
+  heading: Heading
   subheading: string
 }) => {
   return (

@@ -2,9 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import data from '@/data/data.json'
+import { getData } from '@/utils/get-data'
 
-const Footer = () => {
+const Footer = async () => {
+  const data = await getData()
+
   return (
     <footer className="z-30 border-t-[1px] border-t-gray-200 text-black backdrop-blur-sm transition duration-200 ease-linear">
       <div className="mx-auto h-full max-w-screen-xl py-10">

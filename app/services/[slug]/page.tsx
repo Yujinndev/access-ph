@@ -1,20 +1,15 @@
+import Link from 'next/link'
 import Image from 'next/image'
-import data from '@/data/data.json'
+import { cn } from '@/lib/utils'
 import { StyledHeading } from '@/components/ui/styled-heading'
 import { ArrowRight, BadgeCheck, Quote } from 'lucide-react'
-import { cn } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import { getData } from '@/utils/get-data'
 
-// Pre-generate paths for all services in the data.json
-export async function generateStaticParams() {
-  return data.SERVICES.items.map((service) => ({
-    slug: service.id.toString(),
-  }))
-}
+const ServiceDetails = async ({ params }: { params: { slug: string } }) => {
+  const data = await getData()
 
-const ServiceDetails = ({ params }: { params: { slug: string } }) => {
   const id = params.slug
   const service = data.SERVICES.items.find((item) => item.id.toString() == id)
 
@@ -84,7 +79,7 @@ const ServiceDetails = ({ params }: { params: { slug: string } }) => {
           )}
           <div className="mt-8 flex w-full flex-wrap gap-8 lg:mx-0 lg:mt-12 lg:pb-16">
             {service?.features?.items?.map((feature, index) => {
-              const totalItems = service?.features?.items?.length
+              const totalItems = service?.features?.items?.length || 0
               const isLastRowSingle =
                 totalItems % 3 === 1 && index === totalItems
 
